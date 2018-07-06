@@ -1,0 +1,63 @@
+# 创建部署
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jenkins
+  labels:
+    app: jenkins
+spec:
+  selector:
+    matchLabels:
+      app: jenkins
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: jenkins
+    spec:
+      nodeSelector:
+        kubernetes.io/hostname: lab-backend1
+      tolerations:                            # 容忍 Jenkins 在 Master 节点部署
+      - key: node-role.kubernetes.io/master
+        effect: NoSchedule
+      containers:
+      - name: jenkins
+        image: jenkinsci/blueocean
+        ports:
+        - containerPort: 8080
+        - containerPort: 50000
+        volumeMounts:
+          - mountPath: /var/jenkins_home
+            name: jenkins-volume
+          - mountPath: /var/run/docker.sock
+            name: docker-sock
+      volumes:
+        - name: jenkins-volume
+          persistentVolumeClaim:
+            claimName: jenkins-pvc
+        - name: docker-sock
+          hostPath:
+            path: /var/run/docker.sock
+      securityContext:                      # 主机 root 权限
+        runAsUser: 0
+---
+# 创建服务
+apiVersion: v1
+kind: Service
+metadata:
+  name: jenkins
+  labels:
+    app: jenkins
+spec:
+  ports:
+  - port: 8080
+    targetPort: 8080
+    nodePort: 31115
+#  保留此端口号，Maybe it is useful in the future
+#  - port: 50000
+#    targetPort: 50000
+#    nodePort: 31116
+  selector:
+    app: jenkins
+  type: NodePort

@@ -6,6 +6,7 @@
 - Artifactory - Maven Repository [https://mvn.anoyi.com](https://mvn.anoyi.com)
 - Jenkins - CI/CD [https://ci.anoyi.com](https://ci.anoyi.com)
 - Yapi - Application API Management [https://api.anoyi.com](https://api.anoyi.com)
+- Grafana - All Stack Monitoring [Cluster](https://grafana.anoyi.com/dashboard/db/cluster?orgId=1) | [Pods](https://grafana.anoyi.com/dashboard/db/pods?orgId=1)
 
 ### 应用层
 

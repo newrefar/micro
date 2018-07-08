@@ -1,11 +1,9 @@
 pipeline {
   agent any
   stages {
-    stage('Move') {
+    stage('Ansible') {
       steps {
-        sh '''rm -rf /var/jenkins_home/micro && mkdir /var/jenkins_home/micro
-
-cp -rf * /var/jenkins_home/micro'''
+        sh 'cp -rf ansible /etc/ansible'
       }
     }
   }

@@ -4,12 +4,18 @@ metadata:
   name: docker-auth-config
 data:
   config.json: '{
-                	"auths": {
-                		"registry.cn-hangzhou.aliyuncs.com": {
-                			"auth": "MjI4NzAxOTkyQHFxLmNvbTphbm95aS5jb20="
-                		}
-                	},
-                	"HttpHeaders": {
-                		"User-Agent": "Docker-Client/17.12.1-ce (linux)"
-                	}
+                        "auths": {
+                                "registry-vpc.cn-beijing.aliyuncs.com": {
+                                        "auth": "MjI4NzAxOTkyQHFxLmNvbTphbm95aS5jb20="
+                                },
+                                "registry.cn-beijing.aliyuncs.com": {
+                                        "auth": "MjI4NzAxOTkyQHFxLmNvbTphbm95aS5jb20="
+                                },
+                                "registry.cn-hangzhou.aliyuncs.com": {
+                                        "auth": "MjI4NzAxOTkyQHFxLmNvbTphbm95aS5jb20="
+                                }
+                        },
+                        "HttpHeaders": {
+                                "User-Agent": "Docker-Client/17.12.1-ce (linux)"
+                        }
                 }'

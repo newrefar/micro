@@ -23,7 +23,7 @@ spec:
         effect: NoSchedule
       containers:
       - name: jenkins
-        image: jenkinsci/blueocean
+        image: registry.cn-hangzhou.aliyuncs.com/cncf/jenkins
         ports:
         - containerPort: 8080
         - containerPort: 50000
@@ -32,6 +32,8 @@ spec:
             name: jenkins-volume
           - mountPath: /var/run/docker.sock
             name: docker-sock
+          - mountPath: /root/.ssh
+            name: ssh
       volumes:
         - name: jenkins-volume
           persistentVolumeClaim:
@@ -39,6 +41,9 @@ spec:
         - name: docker-sock
           hostPath:
             path: /var/run/docker.sock
+        - name: ssh
+          hostPath:
+            path: /root/ssh
       securityContext:                      # 主机 root 权限
         runAsUser: 0
 ---

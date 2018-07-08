@@ -11,18 +11,54 @@ eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiw
 
 ```
 - Artifactory - Maven Repository [https://mvn.anoyi.com](https://mvn.anoyi.com)
-- Jenkins - CI/CD [https://ci.anoyi.com](https://ci.anoyi.com)
+
+```
+账号  user
+密码  anoyi.com
+```
+
+- Jenkins - CI/CD [https://ci.anoyi.com](https://ci.anoyi.com/blue/pipelines)
+
+```
+无需登录认证
+```
+
 - Yapi - Application API Management [https://api.anoyi.com](https://api.anoyi.com)
+
+```
+账号  user@anoyi.com
+密码  anoyi.com
+```
+
 - Grafana - All Stack Monitoring [Cluster](https://grafana.anoyi.com/dashboard/db/cluster?orgId=1) | [Pods](https://grafana.anoyi.com/dashboard/db/pods?orgId=1)
+
+```
+无需登录认证
+```
+
+> 请文明使用，共建良好环境！
 
 ### 应用层
 
-**网关 [micro-core-gateway](https://github.com/ChinaSilence/micro-core-gateway)**
+**网关** -> [micro-core-gateway](https://github.com/ChinaSilence/micro-core-gateway)
 
-核心技术 Spring Cloud Gateway
+> 核心技术 Spring Cloud Gateway，作用：后端服务路由、统一身份认证、限流等
 
-**用户服务 micro-server-user**
+**用户服务** -> micro-server-user
 
+> 用户信息管理
+
+**抖音服务** -> micro-server-douyin
+
+> 抖音数据爬取
+
+**抖音服务** -> micro-node-douyin
+
+> 抖音加密算法解密，使用 NodeJS 提供参数加密值
+
+**即时通信** -> micro-server-websocket
+
+> WebSocket 服务，双向通信
 
 
 ### 技术交流

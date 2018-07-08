@@ -34,6 +34,10 @@ spec:
             name: docker-sock
           - mountPath: /root/.ssh
             name: ssh
+          - mountPath: /etc/ansible         # ansible 默认配置路径
+            name: ansible
+          - mountPath: /root/.docker
+            name: docker-auth-config
       volumes:
         - name: jenkins-volume
           persistentVolumeClaim:
@@ -44,6 +48,12 @@ spec:
         - name: ssh
           hostPath:
             path: /root/ssh
+        - name: ansible
+          hostPath:
+            path: /root/ansible
+        - name: docker-auth-config
+          configMap:
+            name: docker-auth-config
       securityContext:                      # 主机 root 权限
         runAsUser: 0
 ---

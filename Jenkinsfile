@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Ansible') {
       steps {
-        sh 'cp -rf ansible /etc/ansible'
+        sh 'cp -rf ansible/* /etc/ansible'
       }
     }
   }

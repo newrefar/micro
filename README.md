@@ -36,7 +36,16 @@ eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiw
 无需登录认证
 ```
 
+- Kibana - All Stack Logging [https://log.anoyi.com/](https://log.anoyi.com/)
+
+```
+无需登录认证
+```
+
 > 请文明使用，共建良好环境！
+
+----
+
 
 ### 应用层
 
@@ -60,6 +69,7 @@ eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiw
 
 > WebSocket 服务，双向通信
 
+-----
 
 ### 技术交流
 

@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: mongo-pvc
+  name: elasticsearch-pvc
   annotations:
     volume.beta.kubernetes.io/storage-class: "nfs"
 spec:

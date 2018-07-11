@@ -18,6 +18,7 @@ spec:
     spec:
       containers:
       - image: registry-vpc.cn-beijing.aliyuncs.com/micro-java/{{ project }}
+        imagePullPolicy: Always
         name: {{ project }}
         ports:
         - containerPort: 8080

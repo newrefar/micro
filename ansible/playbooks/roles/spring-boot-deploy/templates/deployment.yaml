@@ -10,7 +10,11 @@ spec:
     matchLabels:
       app: {{ project }}
   strategy:
-    type: Recreate
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 3
+      maxUnavailable: 3
+  replicas: 2
   template:
     metadata:
       labels:

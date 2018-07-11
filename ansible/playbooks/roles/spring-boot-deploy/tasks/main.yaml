@@ -1,6 +1,14 @@
-- name: Deloy {{ project }}
+- name: ==》 创建文件夹 /root/k8s/spring-boot
+  file: path=/root/k8s/spring-boot state=directory mode=0755
+
+- name: ==》 渲染部署文件 {{ project }}.yaml
+  template:
+    src: deployment.yaml
+    dest: /root/k8s/spring-boot/{{ project }}.yaml
+
+- name: ==》 部署应用 {{ project }}
   kubernetes:
     api_endpoint: 127.0.0.1
     insecure: true
-    file_reference: deployment.yaml
+    file_reference: /root/k8s/spring-boot/{{ project }}.yaml
     state: present

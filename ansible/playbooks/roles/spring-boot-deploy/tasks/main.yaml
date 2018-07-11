@@ -7,8 +7,4 @@
     dest: /root/k8s/spring-boot/{{ project }}.yaml
 
 - name: ==》 部署应用 {{ project }}
-  kubernetes:
-    api_endpoint: 127.0.0.1
-    insecure: true
-    file_reference: /root/k8s/spring-boot/{{ project }}.yaml
-    state: present
+  shell: "kubectl apply -f /root/k8s/spring-boot/{{ project }}.yaml"

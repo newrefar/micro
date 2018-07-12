@@ -53,7 +53,7 @@ eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiw
 
 > 核心技术 Spring Cloud Gateway，作用：后端服务路由、统一身份认证、限流等
 
-**用户服务** -> micro-server-user
+**用户服务** -> [micro-server-user](https://github.com/ChinaSilence/micro-server-user)
 
 > 用户信息管理
 

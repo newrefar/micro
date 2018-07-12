@@ -26,7 +26,7 @@ spec:
         name: {{ project }}
         ports:
         - containerPort: 8080
-{% if rpc == true %}
+{% if rpc is defined and rpc == true %}
         - containerPort: 6666
 {% endif %}
         env:

@@ -26,6 +26,9 @@ spec:
         name: {{ project }}
         ports:
         - containerPort: 8080
+{% if rpc is true %}
+        - containerPort: 6666
+{% endif %}
         env:
           - name: JVM_PARAMS
             value: {{ jvm_params }}     # Spring Boot JVM 参数配置

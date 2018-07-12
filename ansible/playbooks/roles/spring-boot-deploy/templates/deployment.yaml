@@ -21,7 +21,7 @@ spec:
         app: {{ project }}
     spec:
       containers:
-      - image: registry-vpc.cn-beijing.aliyuncs.com/micro-java/{{ project }}
+      - image: registry-vpc.cn-beijing.aliyuncs.com/micro-java/{{ project }}:latest
         imagePullPolicy: Always
         name: {{ project }}
         ports:

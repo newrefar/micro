@@ -36,13 +36,11 @@ spec:
             value: {{ spring_params }}  # Spring Boot 应用配置
         livenessProbe:
           httpGet:                         # 使用 HTTP 请求探测
-            host: 127.0.0.1
             port: 8080
             path: /
-            scheme: HTTP
           failureThreshold: 3           # 最大失败次数
           timeoutSeconds: 3             # 探测超时时长，单位：秒
-          initialDelaySeconds: 30       # 初始化时间，单位：秒
+          initialDelaySeconds: 60       # 初始化时间，单位：秒
           periodSeconds: 5              # 探测时间间隔，单位：秒
           successThreshold: 1           # 失败后探测成功的最小连续成功次数
         resources:

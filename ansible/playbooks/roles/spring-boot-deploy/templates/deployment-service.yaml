@@ -35,8 +35,11 @@ spec:
           - name: SPRING_PARAMS
             value: {{ spring_params }}  # Spring Boot 应用配置
         livenessProbe:
-          exec:                         # 使用 HTTP 请求探测
-            command: "curl 127.0.0.1:8080 || exit 1"
+          httpGet:                         # 使用 HTTP 请求探测
+            port: 8080
+            path: /
+#            command:
+#            - "curl 127.0.0.1:8080 || exit 1"
           failureThreshold: 3           # 最大失败次数
           timeoutSeconds: 1             # 探测超时时长，单位：秒
           initialDelaySeconds: 30       # 初始化时间，单位：秒

@@ -3,7 +3,7 @@
 
 - name: ==》 渲染部署文件 {{ project }}.yaml
   template:
-    src: deployment.yaml
+    src: deployment-service.yaml
     dest: /root/k8s/spring-boot/{{ project }}.yaml
 
 - name: ==》 部署应用 {{ project }}

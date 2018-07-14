@@ -55,13 +55,15 @@ metadata:
     app: {{ project }}
 spec:
   ports:
-  - port: 8080
+  - name: http
+    port: 8080
     targetPort: 8080
 {% if nodePort is defined %}
     nodePort: {{ nodePort }}
 {% endif %}
 {% if rpc is defined and rpc %}
-  - port: 6666
+  - name: rpc
+    port: 6666
     targetPort: 6666
 {% endif %}
   selector:

@@ -9,12 +9,12 @@ spec:
   selector:
     matchLabels:
       app: {{ project }}
-  strategy:                 # 滚动部署
+  strategy:                             # 更新策略：滚动部署
     type: RollingUpdate
     rollingUpdate:
       maxSurge: 3
       maxUnavailable: 3
-  replicas: 2
+  replicas: 2                           # 配置容器副本数量
   template:
     metadata:
       labels:
@@ -26,25 +26,31 @@ spec:
         name: {{ project }}
         ports:
         - containerPort: 8080
-{% if rpc is defined and rpc %}
+{% if rpc is defined and rpc %}         # Ansible 配置 rpc=true 时，启用 RPC 端口号 6666
         - containerPort: 6666
 {% endif %}
         env:
           - name: JVM_PARAMS
             value: {{ jvm_params }}     # Spring Boot JVM 参数配置
           - name: SPRING_PARAMS
-            value: {{ spring_params }}  # Spring Boot 应用配置
-        livenessProbe:
-          httpGet:                         # 使用 HTTP 请求探测
+            value: {{ spring_params }}  # Spring Boot 应用参数配置
+        readinessProbe:                 # ---- 准备状态检查 ----
+          httpGet:
+            path: /
+            port: 8080
+          timeoutSeconds: 2             # 探测超时时长，单位：秒
+          initialDelaySeconds: 60       # 初始化时间，单位：秒
+        livenessProbe:                  # ---- 健康状态检查 ----
+          httpGet:
             port: 8080
             path: /
           failureThreshold: 3           # 最大失败次数
-          timeoutSeconds: 3             # 探测超时时长，单位：秒
+          timeoutSeconds: 2             # 探测超时时长，单位：秒
           initialDelaySeconds: 60       # 初始化时间，单位：秒
           periodSeconds: 5              # 探测时间间隔，单位：秒
           successThreshold: 1           # 失败后探测成功的最小连续成功次数
         resources:
-          limits:
+          limits:                       # 资源限制
             cpu: "500m"
             memory: "1024Mi"
 ---
@@ -59,7 +65,7 @@ spec:
   - name: http
     port: 8080
     targetPort: 8080
-{% if nodePort is defined %}
+{% if nodePort is defined %}           # 指定对外暴露的端口号 NodePort
     nodePort: {{ nodePort }}
 {% endif %}
 {% if rpc is defined and rpc %}

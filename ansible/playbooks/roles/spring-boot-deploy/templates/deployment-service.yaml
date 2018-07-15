@@ -12,8 +12,8 @@ spec:
   strategy:                             # 更新策略：滚动部署
     type: RollingUpdate
     rollingUpdate:
-      maxSurge: 3
-      maxUnavailable: 3
+      maxSurge: 1                       # 允许同时更新的最大 Pod 数量
+      maxUnavailable: 1                 # 允许的最大 Pod 不可用数量
   replicas: 2                           # 配置容器副本数量
   template:
     metadata:
@@ -25,9 +25,9 @@ spec:
         imagePullPolicy: Always
         name: {{ project }}
         ports:
-        - containerPort: 8080
-{% if rpcPort is defined %}         # Ansible 配置 rpcPort 时，启用 RPC 端口号 6666
-        - containerPort: {{ rpcPort }}
+        - containerPort: 8080           # HTTP 端口
+{% if rpcPort is defined %}
+        - containerPort: {{ rpcPort }}  # RPC 端口
 {% endif %}
         env:
           - name: JVM_PARAMS
@@ -39,14 +39,14 @@ spec:
             path: /actuator/health
             port: 8080
           timeoutSeconds: 2             # 探测超时时长，单位：秒
-          initialDelaySeconds: 45       # 初始化时间，单位：秒
+          initialDelaySeconds: 60       # 初始化时间，单位：秒
         livenessProbe:                  # ---- 健康状态检查 ----
           httpGet:
             port: 8080
             path: /actuator/info
           failureThreshold: 3           # 最大失败次数
           timeoutSeconds: 2             # 探测超时时长，单位：秒
-          initialDelaySeconds: 45       # 初始化时间，单位：秒
+          initialDelaySeconds: 60       # 初始化时间，单位：秒
           periodSeconds: 5              # 探测时间间隔，单位：秒
           successThreshold: 1           # 失败后探测成功的最小连续成功次数
         resources:

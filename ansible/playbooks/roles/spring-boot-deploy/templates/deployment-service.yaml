@@ -39,7 +39,7 @@ spec:
             path: /actuator/health
             port: 8080
           timeoutSeconds: 2             # 探测超时时长，单位：秒
-          initialDelaySeconds: 60       # 初始化时间，单位：秒
+          initialDelaySeconds: 90       # 初始化时间，单位：秒
         livenessProbe:                  # ---- 健康状态检查 ----
           httpGet:
             port: 8080

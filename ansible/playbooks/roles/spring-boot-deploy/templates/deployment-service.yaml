@@ -51,7 +51,7 @@ spec:
           successThreshold: 1           # 失败后探测成功的最小连续成功次数
         resources:
           limits:                       # 资源限制
-            cpu: "500m"
+#            cpu: "500m"                # 测试时建议不添加此限制
             memory: "1024Mi"
 ---
 apiVersion: v1

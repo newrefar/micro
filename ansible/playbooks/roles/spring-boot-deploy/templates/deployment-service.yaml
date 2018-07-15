@@ -20,6 +20,7 @@ spec:
       labels:
         app: {{ project }}
     spec:
+      terminationGracePeriodSeconds: 30 # 优雅停机最长时间 单位：秒
       containers:
       - image: registry-vpc.cn-beijing.aliyuncs.com/micro-java/{{ project }}:latest
         imagePullPolicy: Always
@@ -46,7 +47,7 @@ spec:
             path: /actuator/info
           failureThreshold: 3           # 最大失败次数
           timeoutSeconds: 2             # 探测超时时长，单位：秒
-          initialDelaySeconds: 60       # 初始化时间，单位：秒
+          initialDelaySeconds: 90       # 初始化时间，单位：秒
           periodSeconds: 5              # 探测时间间隔，单位：秒
           successThreshold: 1           # 失败后探测成功的最小连续成功次数
         resources:

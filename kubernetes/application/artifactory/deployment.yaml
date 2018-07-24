@@ -27,4 +27,4 @@ spec:
       volumes:
         - name: artifactory-volume
           persistentVolumeClaim:
-            claimName: artifactory-pvc8
+            claimName: artifactory-pvc

@@ -13,8 +13,9 @@ spec:
     type: RollingUpdate
     rollingUpdate:
       maxSurge: 1                       # 允许同时更新的最大 Pod 数量
-      maxUnavailable: 1                 # 允许的最大 Pod 不可用数量
+      maxUnavailable: 0                 # 允许的最大 Pod 不可用数量
   replicas: 2                           # 配置容器副本数量
+  minReadySeconds: 30                   # 最小准备时间
   template:
     metadata:
       labels:

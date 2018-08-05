@@ -30,10 +30,11 @@ eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiw
 密码  anoyi.com
 ```
 
-- Grafana - All Stack Monitoring [Cluster](https://grafana.anoyi.com/dashboard/db/cluster?orgId=1) | [Pods](https://grafana.anoyi.com/dashboard/db/pods?orgId=1)
+- Grafana - All Stack Monitoring [Nodes](https://grafana.anoyi.com/d/fa49a4706d07a042595b664c87fb33ea/nodes?orgId=1) | [Pods](https://grafana.anoyi.com/d/ab4f13a9892a76a4d21ce8c2445bf4ea/pods?orgId=1)
 
 ```
-无需登录认证
+账号  viewer@anoyi.com
+密码  anoyi.com
 ```
 
 - Kibana - All Stack Logging [https://log.anoyi.com/](https://log.anoyi.com/)
@@ -45,7 +46,6 @@ eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiw
 > 请文明使用，共建良好环境！
 
 ----
-
 
 ### 应用层
 

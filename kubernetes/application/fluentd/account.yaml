@@ -39,7 +39,7 @@ metadata:
 subjects:
 - kind: ServiceAccount
   name: fluentd-es
-  namespace: default
+  namespace: kube-system
   apiGroup: ""
 roleRef:
   kind: ClusterRole

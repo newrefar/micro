@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: scca-config
+data:
+  application.properties: |-
+    spring.application.name=scca
+    server.port=8080
+
+    scca.rest.context-path=/xhr
+    scca.ui.use-embed-scca-rest-server=true
+
+    spring.datasource.url=jdbc:mysql://mysql:3306/config-db?useUnicode=true&characterEncoding=utf8&autoReconnect=true&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true
+    spring.datasource.username=root
+    spring.datasource.password=anoyi.com
+    spring.datasource.driver-class-name=org.mariadb.jdbc.Driver
+
+    spring.cloud.config.server.prefix=/scca-config-server
+    spring.cloud.config.server.overrides.hello=world
+    encrypt.key=anoyi

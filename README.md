@@ -43,6 +43,13 @@ eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiw
 无需登录认证
 ```
 
+- SCCA - Spring Boot 配置管理中心 [https://conf.anoyi.com/](https://conf.anoyi.com/)
+
+```
+账号 user
+密码 anoyi123
+```
+
 > 请文明使用，共建良好环境！
 
 ----

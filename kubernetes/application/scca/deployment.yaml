@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: micro-core-scca
-        image: registry.cn-hangzhou.aliyuncs.com/micro-java/scca:1.1.0
+        image: registry.cn-hangzhou.aliyuncs.com/micro-java/scca:1.1.1
         ports:
         - containerPort: 8080
         env:

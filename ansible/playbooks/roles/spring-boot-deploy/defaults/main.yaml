@@ -1,4 +1,9 @@
 jvm_params: ""
 
-spring_params: ""
+app_config_url: "http://micro-core-scca:8080/scca-config-server"
 
+app_env: "dev"
+
+app_name: ""
+
+app_label: "master"

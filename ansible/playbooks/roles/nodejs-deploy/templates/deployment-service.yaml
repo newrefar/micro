@@ -21,7 +21,7 @@ spec:
       labels:
         app: {{ project }}
     spec:
-      terminationGracePeriodSeconds: 30 # 优雅停机最长时间 单位：秒
+      terminationGracePeriodSeconds: 10 # 优雅停机最长时间 单位：秒
       containers:
       - image: registry-vpc.cn-beijing.aliyuncs.com/micro-java/{{ project }}:latest
         imagePullPolicy: Always
@@ -41,8 +41,7 @@ metadata:
     app: {{ project }}
 spec:
   ports:
-  - name: http
-    port: 6565
+  - port: 6565
     targetPort: 6565
   selector:
     app: {{ project }}

@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: default
+  name: {{ project }}
+  labels:
+    app: {{ project }}
+spec:
+  selector:
+    matchLabels:
+      app: {{ project }}
+  strategy:                             # 更新策略：滚动部署
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1                       # 允许同时更新的最大 Pod 数量
+      maxUnavailable: 0                 # 允许的最大 Pod 不可用数量
+  replicas: 1                           # 配置容器副本数量
+  minReadySeconds: 10                   # 最小准备时间
+  template:
+    metadata:
+      labels:
+        app: {{ project }}
+    spec:
+      terminationGracePeriodSeconds: 30 # 优雅停机最长时间 单位：秒
+      containers:
+      - image: registry-vpc.cn-beijing.aliyuncs.com/micro-java/{{ project }}:latest
+        imagePullPolicy: Always
+        name: {{ project }}
+        ports:
+        - containerPort: 6565           # HTTP 端口
+        resources:
+          limits:                       # 资源限制
+#            cpu: "500m"                # 测试时建议不添加此限制
+            memory: "256Mi"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ project }}
+  labels:
+    app: {{ project }}
+spec:
+  ports:
+  - name: http
+    port: 6565
+    targetPort: 6565
+  selector:
+    app: {{ project }}

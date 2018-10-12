@@ -1,0 +1,10 @@
+- name: ==》 创建文件夹 /root/k8s/nodejs
+  file: path=/root/k8s/nodejs state=directory mode=0755
+
+- name: ==》 渲染部署文件 {{ project }}.yaml
+  template:
+    src: deployment-service.yaml
+    dest: /root/k8s/nodejs/{{ project }}.yaml
+
+- name: ==》 部署应用 {{ project }}
+  shell: "kubectl apply -f /root/k8s/nodejs/{{ project }}.yaml"

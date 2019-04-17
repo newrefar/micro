@@ -64,11 +64,11 @@ eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiw
 
 > 用户信息管理
 
-**抖音服务** -> micro-server-douyin
+**抖音服务** -> [micro-server-douyin](https://github.com/ChinaSilence/micro-server-douyin)
 
 > 抖音数据爬取
 
-**抖音服务** -> micro-node-douyin
+**抖音服务** -> [micro-node-douyin](https://github.com/ChinaSilence/micro-node-douyin)
 
 > 抖音加密算法解密，使用 NodeJS 提供参数加密值
 

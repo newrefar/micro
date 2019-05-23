@@ -34,14 +34,6 @@ spec:
         env:
           - name: JVM_PARAMS
             value: {{ jvm_params }}     # Spring Boot JVM 参数配置
-          - name: APP_CONFIG_URL
-            value: {{ app_config_url }} # Spring Boot 配置中心地址
-          - name: APP_ENV
-            value: {{ app_env }}        # 应用发布的环境
-          - name: APP_NAME
-            value: {{ app_name }}       # 服务名称
-          - name: APP_LABEL
-            value: {{ app_label }}      # 服务标签
         readinessProbe:                 # ---- 准备状态检查 ----
           httpGet:
             path: /actuator/health

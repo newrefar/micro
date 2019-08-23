@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: consul
+  labels:
+    app: consul
+spec:
+  selector:
+    matchLabels:
+      app: consul
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: consul
+    spec:
+      containers:
+      - name: consul
+        image: consul
+        ports:
+        - containerPort: 8500
+        volumeMounts:
+        - name: consul-volume
+          mountPath: /consul/data
+      volumes:
+      - name: consul-volume
+        persistentVolumeClaim:
+          claimName: consul-pvc

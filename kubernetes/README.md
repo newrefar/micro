@@ -12,6 +12,7 @@ Kubernetes 集群内部各种资源部署的配置文件。
   + kubernetes-dashboard: Kubernetes 管理面板
   + kubernetes-heapster: Kubernetes 集群监控
   + yapi: 服务 API 文档管理平台
+  + consul: 分布式配置中心
 + database
   + elasticsearch: 存储日志数据
   + mongo: 存储 Yapi 数据

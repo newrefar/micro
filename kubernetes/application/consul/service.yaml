@@ -2,14 +2,14 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: micro-core-scca
+  name: consul
   labels:
-    app: micro-core-scca
+    app: consul
 spec:
   ports:
-  - port: 8080
-    targetPort: 8080
+  - port: 8500
+    targetPort: 8500
     nodePort: 31118
   selector:
-    app: micro-core-scca
+    app: consul
   type: NodePort
